@@ -15,24 +15,35 @@
 </template>
 
 <script>
-export default {
-  name: 'Index',
-  data(){
-    return {
-      smoothies:[
-        {title: 'Menu 1', slug: 'menu-1', ingredients:['kopi', 'susu', 'tea'], id:123},
-        {title: 'Menu 2', slug: 'menu-2', ingredients:['capucino', 'jahe', 'kuku bima'], id:321}
+  import dbFirebase from '@/firebase/init';
+  export default {
+    name: 'Index',
+    data(){
+      return {
+        smoothies:[]
+      }
+    },
+    methods:{
+      deleteSmoothie(id){
+        dbFirebase.collection('smoothies').doc(id).delete()
+        .then(()=> this.smoothies = this.smoothies.filter(smoothie => smoothie.id !==id));
+      }
+    },
+    created(){
+      // fetch data from firebase
+      dbFirebase.collection('smoothies').get()
+        .then(documents =>{
+          documents.forEach(doc =>{
+            // id tdk menjadi bagian dari fields document
+            // tapi merupakan path dari document itu sendiri
+            let smoothie = doc.data();
+            smoothie.id = doc.id;
+            this.smoothies.push(smoothie)
+          })
+        })
+    }
 
-      ]
-    }
-  },
-  methods:{
-    deleteSmoothie(id){
-      this.smoothies = this.smoothies.filter(smoothie => smoothie.id != id);
-    }
   }
-
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

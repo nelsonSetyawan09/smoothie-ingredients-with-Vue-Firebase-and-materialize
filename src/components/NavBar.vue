@@ -2,11 +2,11 @@
 	<div class="navbar">
 		<nav class=" nav-extended card-panel teal lighten-2">
 	  	<div class="nav-content">
-		    <router-link to="">
+		    <router-link to="/">
 		    	<span class="nav-title">Smoohties</span>
 		    </router-link>
 		    <a href="" class="btn-floating btn-large halfway-fab  teal darken-1">
-		    	<router-link to="">
+		    	<router-link :to="{name: 'AddSmoothie'}">
 		    		<i class="material-icons">add</i>
 		    	</router-link>
 		    </a>
