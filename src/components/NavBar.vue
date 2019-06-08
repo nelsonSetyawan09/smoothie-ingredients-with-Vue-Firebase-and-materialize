@@ -5,7 +5,7 @@
 		    <router-link to="/">
 		    	<span class="nav-title">Smoohties</span>
 		    </router-link>
-		    <a href="" class="btn-floating btn-large halfway-fab  teal darken-1">
+		    <a class="btn-floating btn-large halfway-fab  teal darken-1">
 		    	<router-link :to="{name: 'AddSmoothie'}">
 		    		<i class="material-icons">add</i>
 		    	</router-link>

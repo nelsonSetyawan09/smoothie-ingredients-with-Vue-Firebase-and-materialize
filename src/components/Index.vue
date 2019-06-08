@@ -10,8 +10,14 @@
           </li>
         </ul>
         </div>
+        <span  class="waves-effect waves-light btn-small edit-smoothie__btn">
+          <router-link :to="{name: 'EditSmoothie', params:{id: zmoothie.id}}">
+            <i class="material-icons edit teal-text text-darken-4">edit</i>
+          </router-link>
+        </span>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -67,5 +73,10 @@
     right: 5px;
     cursor: pointer;
     color: #37474f;
+  }
+  .index .edit-smoothie__btn{
+      position: absolute;
+      bottom:0;
+      right: 0;
   }
 </style>

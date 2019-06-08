@@ -26,7 +26,6 @@
 				<button class="btn pink">Add Smoothie</button>
 			</div>
 		</form>
-		</form>
 	</div>
 </template>
 
